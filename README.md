@@ -20,6 +20,6 @@ Start with
        -p 8080:8080 \
        -v ${PWD}/config:/etc/guacamole \
        -v ${PWD}/data:/file-transfer \
-       martinjohn/guacamole:latest
+       rattydave/guacamole-uk:latest
 
 Then connect to docker server http://docker:8080/remote
