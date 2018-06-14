@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y \
     automake \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libfreerdp-dev \
     libossp-uuid-dev \
     libpango1.0-dev \
-    libpng-dev \
+    libpng12-dev \
     libpulse-dev \
     libssh2-1-dev \
     libssl-dev \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     libvorbis-dev \
     libwebp-dev \
     man-db \
-    tomcat8 \
+    tomcat7 \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
