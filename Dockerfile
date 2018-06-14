@@ -1,4 +1,3 @@
-#FROM ubuntu:16.04
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y \
@@ -11,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libfreerdp-dev \
     libossp-uuid-dev \
     libpango1.0-dev \
-    libpng12-dev \
+    libpng-dev \
     libpulse-dev \
     libssh2-1-dev \
     libssl-dev \
@@ -21,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     libvorbis-dev \
     libwebp-dev \
     man-db \
-    tomcat7 \
+    tomcat8 \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -56,4 +55,3 @@ COPY start.sh /tmp/start.sh
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/start.sh"]
- 
