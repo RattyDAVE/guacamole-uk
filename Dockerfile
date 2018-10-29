@@ -34,10 +34,8 @@ RUN wget "http://archive.apache.org/dist/guacamole/${VERSION}/source/guacamole-s
     && tar zxvf guacamole-server-${VERSION}.tar.gz
 
 COPY en_gb_qwerty.keymap /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp/keymaps/en_gb_qwerty.keymap
-COPY Keymap.patch /tmp/Keymap.patch
 
 RUN cd /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp \
-    && patch -b < /tmp/Keymap.patch \
     && cd /APP/bin/remote/guacamole-server-${VERSION} \
     && ./configure --with-init-dir=/etc/init.d \
     && make \
