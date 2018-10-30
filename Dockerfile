@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     libwebp-dev \
     man-db \
     tomcat7 \
+    tomcat7-examples tomcat7-admin \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -33,7 +34,7 @@ WORKDIR /APP/bin/remote
 RUN wget "http://archive.apache.org/dist/guacamole/${VERSION}/source/guacamole-server-${VERSION}.tar.gz" \
     && tar zxvf guacamole-server-${VERSION}.tar.gz
 
-COPY en_gb_qwerty.keymap /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp/keymaps/en_gb_qwerty.keymap
+#COPY en_gb_qwerty.keymap /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp/keymaps/en_gb_qwerty.keymap
 
 RUN cd /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp \
     && cd /APP/bin/remote/guacamole-server-${VERSION} \
