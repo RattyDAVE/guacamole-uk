@@ -29,7 +29,6 @@ RUN apt-get update && apt-get install -y \
     libwebp-dev \
     man-db \
     tomcat8 \
-    tomcat8-examples tomcat8-admin \
     wget \
     && rm -rf /var/lib/apt/lists/* \
     && wget "http://archive.apache.org/dist/guacamole/${VERSION}/source/guacamole-server-${VERSION}.tar.gz" \
