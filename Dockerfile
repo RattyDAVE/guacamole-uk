@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y \
     libvorbis-dev \
     libwebp-dev \
     man-db \
-    tomcat7 \
-    tomcat7-examples tomcat7-admin \
+    tomcat8 \
+    tomcat8-examples tomcat8-admin \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -46,9 +46,9 @@ RUN cd /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp \
     && ln -s /usr/local/lib/freerdp/*.so /usr/lib/x86_64-linux-gnu/freerdp/. \
     && cd /APP/bin/remote \
     && wget http://archive.apache.org/dist/guacamole/${VERSION}/binary/guacamole-${VERSION}.war \
-    && ln -s /APP/bin/remote/guacamole-${VERSION}.war /var/lib/tomcat7/webapps/remote.war \
-    && echo "GUACAMOLE_HOME=/etc/guacamole" >> /etc/default/tomcat7 \
-    && chown tomcat7:tomcat7 /file-transfer
+    && ln -s /APP/bin/remote/guacamole-${VERSION}.war /var/lib/tomcat8/webapps/remote.war \
+    && echo "GUACAMOLE_HOME=/etc/guacamole" >> /etc/default/tomcat8 \
+    && chown tomcat8:tomcat8 /file-transfer
 
 COPY start.sh /tmp/start.sh
 
