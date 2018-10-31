@@ -72,7 +72,7 @@ RUN apt-get update && apt-get install -y \
         wget \
     && apt-get -y autoclean && apt-get -y autoremove && \
     && apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
-    && rm -rf /var/lib/apt/lists/*  && \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY start.sh /tmp/start.sh
 
