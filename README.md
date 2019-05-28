@@ -17,9 +17,8 @@ To use UK keyboard
 Start with
 ```
     docker run \
-       -it \
+       -dit \
        --name guac \
-       --rm \
        -p 8080:8080 \
        -v ${PWD}/config:/etc/guacamole \
        -v ${PWD}/data:/file-transfer \
