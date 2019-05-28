@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     libfreerdp-dev \
     libossp-uuid-dev \
     libpango1.0-dev \
-    libpng12-dev \
+    libpng-dev \
     libpulse-dev \
     libssh2-1-dev \
     libssl-dev \
