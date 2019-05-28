@@ -28,7 +28,7 @@ Start with
 Then connect to docker server ```http://docker:8080/remote```
 
 
-Example usermapping.xml
+Example usermapping.xml taken from http://guacamole.apache.org/doc/gug/configuring-guacamole.html#user-mapping
 
 ```
 <user-mapping>
@@ -60,6 +60,18 @@ Example usermapping.xml
             <param name="hostname">otherhost</param>
             <param name="port">5900</param>
             <param name="password">VNCPASS</param>
+        </connection>
+        
+        <connection name="Unique Name">
+            <protocol>rdp</protocol>
+            <param name="hostname">localhost</param>
+            <param name="port">3389</param>
+        </connection>
+        
+        <connection name="SSH Connection to Server">
+            <protocol>ssh</protocol>
+            <param name="hostname">sshserver</param>
+            <param name="port">22</param>
         </connection>
 
     </authorize>
