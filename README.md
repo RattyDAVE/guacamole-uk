@@ -26,3 +26,43 @@ Start with
 ```
 
 Then connect to docker server ```http://docker:8080/remote```
+
+
+Example usermapping.xml
+
+```
+<user-mapping>
+    <authorize username="user1" password="password1">
+        <protocol>vnc</protocol>
+        <param name="hostname">localhost</param>
+        <param name="port">5900</param>
+        <param name="password">VNCPASS</param>
+    </authorize>
+
+    <!-- Another user, but using md5 to hash the password
+         (example below uses the md5 hash of "PASSWORD") -->
+    <authorize 
+            username="USERNAME2"
+            password="319f4d26e3c536b5dd871bb2c52e3178"
+            encoding="md5">
+
+        <!-- First authorized connection -->
+        <connection name="localhost">
+            <protocol>vnc</protocol>
+            <param name="hostname">localhost</param>
+            <param name="port">5901</param>
+            <param name="password">VNCPASS</param>
+        </connection>
+
+        <!-- Second authorized connection -->
+        <connection name="otherhost">
+            <protocol>vnc</protocol>
+            <param name="hostname">otherhost</param>
+            <param name="port">5900</param>
+            <param name="password">VNCPASS</param>
+        </connection>
+
+    </authorize>
+
+</user-mapping>
+```
