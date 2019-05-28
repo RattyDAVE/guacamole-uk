@@ -4,15 +4,18 @@ This is a stand alone Guacamole (https://guacamole.incubator.apache.org/) build 
 
 Put your config XML in "config" directory and mount empty "data" directory for file transfers, in user-mapping.xml use the following
 
+```
     <param name="enable-drive">true</param>
     <param name="drive-path">/file-transfer</param>
+```
 
 To use UK keyboard
-
+```
     <param name="server-layout">en-gb-qwerty</param>
+```
 
 Start with
-
+```
     docker run \
        -it \
        --name guac \
@@ -21,5 +24,6 @@ Start with
        -v ${PWD}/config:/etc/guacamole \
        -v ${PWD}/data:/file-transfer \
        rattydave/guacamole-uk:latest
+```
 
-Then connect to docker server http://docker:8080/remote
+Then connect to docker server ```http://docker:8080/remote```
