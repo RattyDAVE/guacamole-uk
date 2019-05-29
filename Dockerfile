@@ -1,10 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 EXPOSE 8080
 VOLUME /etc/guacamole
 VOLUME /file-transfer
 
-ENV VERSION=0.9.14
+ENV VERSION=1.0.0
 WORKDIR /APP/bin/remote
 
 
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     libfreerdp-dev \
     libossp-uuid-dev \
     libpango1.0-dev \
-    libpng12-dev \
+    libpng-dev \
     libpulse-dev \
     libssh2-1-dev \
     libssl-dev \
