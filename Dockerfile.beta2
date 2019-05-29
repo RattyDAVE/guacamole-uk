@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) \
     && rm -rf /var/lib/apt/lists/*
 
-COPY start.sh /tmp/start.sh
+COPY startbeta.sh /tmp/start.sh
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/start.sh"]
