@@ -45,9 +45,7 @@ RUN apt-get update && apt-get install -y \
     && wget http://archive.apache.org/dist/guacamole/${VERSION}/binary/guacamole-${VERSION}.war \
     && ln -s /APP/bin/remote/guacamole-${VERSION}.war /var/lib/tomcat9/webapps/remote.war \
     && echo "GUACAMOLE_HOME=/etc/guacamole" >> /etc/default/tomcat9 \
-    && cat /etc/passwd \
-    && cat /etc/group \
-    && chown tomcat9:tomcat9 /file-transfer \
+    && chown tomcat:tomcat /file-transfer \
     && apt-get -y autoclean && apt-get -y autoremove \
     && apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) \
     && rm -rf /var/lib/apt/lists/*
