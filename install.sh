@@ -1,16 +1,16 @@
+#Create the directory for the config files.
 mkdir -p ~/docker/configs/guacamole
 
+#Create guacamole.properties and put into <HOME>/docker/configs/guacamole/guacamole.properties
 cat <<EOF > ~/docker/configs/guacamole/guacamole.properties
-# Hostname and port of guacamole proxy
 guacd-hostname: localhost
 guacd-port:     4822
-
-# Auth provider class (authenticates user/pass combination, needed if using the provided login screen)
 auth-provider: net.sourceforge.guacamole.net.basic.BasicFileAuthenticationProvider
 basic-user-mapping: /etc/guacamole/user-mapping.xml
 EOF
 
-cat <<EOF > /home/docker/configs/guacamole/user-mapping.xml
+#Create user-mapping.xm and put into <HOME>/docker/configs/guacamole/user-mapping.xml
+cat <<EOF > ~/docker/configs/guacamole/user-mapping.xml
 <user-mapping>
  <authorize username="user1" password="user1password">
   <connection name="RDP - Server 1 ">
@@ -40,6 +40,7 @@ cat <<EOF > /home/docker/configs/guacamole/user-mapping.xml
 </user-mapping>
 EOF
 
+#Download and run container.
 docker run \
        -dit \
        --name guac \
