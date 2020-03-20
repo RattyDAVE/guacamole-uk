@@ -58,18 +58,29 @@ If you require the full version then use the following
 
 ```
 ####### Guacamole #######
-mkdir /root/dbinit
+
+#Setup MYSQL vars
+MYSQL_ROOT_PASSWORD=pass@word01
+MYSQL_DATABASE=guacamole_db
+MYSQL_USER=guacamole_user
+MYSQL_PASSWORD=some_password
+
+#Setup Docker instance names
+MYSQL_NAME=mysqldb
+GUACD_NAME=some_guacd
+GUACAMOLE_NAME=some-guacamole
 
 docker pull guacamole/guacamole
 docker pull guacamole/guacd
 docker pull mysql
 
+mkdir /root/dbinit
 docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --mysql > /root/dbinit/guacamole_initdb.sql
-docker run -d --name mysqldb -v /root/dbinit:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=pass@word01 -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=some_password mysql
-
+docker run -d --name $MYSQL_NAME -v /root/dbinit:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD mysql
 rm -r /root/dbinit
-docker run --name some-guacd -d guacamole/guacd
-docker run --name some-guacamole --link some-guacd:guacd --link mysqldb:mysql -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=some_password -d -p 8080:8080 guacamole/guacamole
+
+docker run --name $GUACD_NAME -d guacamole/guacd
+docker run --name $GUACAMOLE_NAME --link $GUACD_NAME:guacd --link $MYSQL_NAME:mysql -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD -d -p 8080:8080 guacamole/guacamole
 
 #Access via ... http://docker.machine:8080/guacamole default password is guacadmin password guacadmin
 ####### END Guacamole #######
