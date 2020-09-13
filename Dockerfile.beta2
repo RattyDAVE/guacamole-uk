@@ -4,7 +4,7 @@ EXPOSE 8080
 VOLUME /etc/guacamole
 VOLUME /file-transfer
 
-ENV VERSION=1.1.0
+ENV VERSION=1.2.0
 WORKDIR /APP/bin/remote
 
 
