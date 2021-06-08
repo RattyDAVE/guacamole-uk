@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y \
     && cd /APP/bin/remote/guacamole-server-${VERSION}/src/protocols/rdp \
     && cd /APP/bin/remote/guacamole-server-${VERSION} \
     && ./configure --with-init-dir=/etc/init.d \
-    && make \
+    && make -j$(nproc) \
     && make install \
     && ldconfig  \
     && mkdir /usr/lib/x86_64-linux-gnu/freerdp \
