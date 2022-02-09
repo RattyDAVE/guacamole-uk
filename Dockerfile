@@ -1,4 +1,7 @@
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND noninteractive
 
 EXPOSE 8080
 VOLUME /etc/guacamole
